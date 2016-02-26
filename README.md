@@ -25,7 +25,15 @@ to the require section of your `composer.json` file.
 Usage
 -----
 
-Once the extension is installed, simply use it in your code by  :
+To access the module, you need to add this to your application configuration:
 
-```php
-<?= \degordian\frontendController\AutoloadExample::widget(); ?>```
+
+<?php
+    ......
+    'modules' => [
+        'frontend' => [
+            'class' => 'degordian\frontendController\Module',
+        ],
+    ],
+    ......
+
