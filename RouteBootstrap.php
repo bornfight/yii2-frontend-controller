@@ -18,10 +18,7 @@ class RouteBootstrap implements BootstrapInterface
      */
     public function bootstrap($app)
     {
-
-        $app->on(Application::EVENT_BEFORE_REQUEST, function() {
-            $rules = ['/' => 'frontend/url'];
-            Yii::$app->getUrlManager()->addRules($rules);
-        });
+        $rules = ['frontend/<layout:\w+><view:(.*)>' => 'frontend/frontend/render-raw',];
+        Yii::$app->getUrlManager()->addRules($rules);
     }
 }
