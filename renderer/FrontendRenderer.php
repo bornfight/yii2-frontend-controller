@@ -3,6 +3,7 @@
 namespace degordian\frontendController\renderer;
 
 use degordian\frontendController\models\FrontendMock;
+use degordian\frontendController\models\FrontendMockBuilder;
 use yii;
 
 class FrontendRenderer extends yii\base\ViewRenderer
@@ -36,7 +37,7 @@ class FrontendRenderer extends yii\base\ViewRenderer
                 $matches = [];
                 if (preg_match(self::UNDEFINED_VARIABLE_PATTERN, $ex->getMessage(), $matches)) {
                     $variableName = $matches[1];
-                    $params[$variableName] = new FrontendMock();
+                    $params[$variableName] = FrontendMockBuilder::createMock();
                 } else {
                     //This is a real exception that we can't handle. Rethrow
                     throw $ex;

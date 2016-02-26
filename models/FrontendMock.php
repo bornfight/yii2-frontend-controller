@@ -7,6 +7,7 @@ use Yii;
 
 /**
  * @ToDo: Use yii2-faker
+ * @ToDo: Allow for further customization of magic attributes and methods
  *
  * Fluent class that is injected in place of missing variables
  *
@@ -17,31 +18,53 @@ class FrontendMock implements Iterator
 
     private $iteratorIndex = 0;
 
+    private $message = '';
+    private $numberOfIterations = 0;
+
     public function activeAttributes()
     {
         return [
-            'atr',
+            'attribute',
         ];
     }
 
     public function __construct()
     {
-        //$this->faker = Faker\Factory::create();
+
+    }
+
+    public function setMessage($value)
+    {
+        if (is_string($value) == false) {
+            throw new Exception('FrontendMockBuilder::setMessage accepts only string values');
+        }
+        $this->message = $value;
+    }
+
+    public function setNumberOfIterations($value)
+    {
+        if ($value < 0) {
+            throw new Exception('Number of iterations cannot be negative');
+        }
+        if (is_integer($value) == false) {
+            throw new Exception('FrontendMockBuilder::setNumberOfIterations accepts only integer values');
+        }
+        $this->numberOfIterations = $value;
     }
 
     public function __get($name)
     {
-        return new FrontendMock();
+        return FrontendMockBuilder::createMock();
     }
 
     public function __call($name, $arguments)
     {
-        return new FrontendMock();
+        return FrontendMockBuilder::createMock();
     }
 
     public function __toString()
     {
-        return 'Hello from FrontendMock';
+        return $this->message;
     }
 
     /**
@@ -53,7 +76,7 @@ class FrontendMock implements Iterator
      */
     public function current()
     {
-        return new FrontendMock();
+        return FrontendMockBuilder::createMock();
     }
 
     /**
@@ -90,7 +113,7 @@ class FrontendMock implements Iterator
      */
     public function valid()
     {
-        return $this->iteratorIndex < 5;
+        return $this->iteratorIndex < $this->numberOfIterations;
     }
 
     /**
