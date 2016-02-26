@@ -6,11 +6,9 @@ use yii\web\Controller;
 
 class FrontendController extends Controller
 {
-    public $layout = false;
 
-    public function init()
-    {
-        echo "hello";
+    public function actionIndex() {
+        //usage info
     }
 
     public function actionRenderRaw()
