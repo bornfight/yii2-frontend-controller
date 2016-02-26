@@ -1,0 +1,21 @@
+{
+    "name": "degordian/yii2-frontend-controller",
+    "description": "A special controller for your frontend department that allows for easy access to any view/layout combination without going through their respective controllers (avoiding the need to login or have a db).",
+    "type": "yii2-extension",
+    "keywords": ["yii2","extension","frontend"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Marko Kruljac",
+            "email": "marko.kruljac@degordian.com"
+        }
+    ],
+    "require": {
+        "yiisoft/yii2": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "degordian\\frontendController\\": ""
+        }
+    }
+}
