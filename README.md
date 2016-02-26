@@ -37,8 +37,9 @@ To access the module, you need to add this to your application configuration:
     ......
 ```
 
-Then to use this extension open up http://your-project.local/frontend/<layout>/<controller>/<action>
+`Then to use this extension open up http://your-project.local/frontend/<layout>/<controller>/<action>`
 
 Advanced usage allows for a custom output message or dynamic number of iterations by appending ?m=<integer>&i=<message>
 example:
-http://my-project.local/frontned/main/site/index?m=Short+message&i=15
+
+`http://my-project.local/frontned/main/site/index?m=Short+message&i=15`
