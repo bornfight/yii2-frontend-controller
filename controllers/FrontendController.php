@@ -2,23 +2,20 @@
 
 namespace degordian\frontendController\controllers;
 
+use Yii;
 use yii\web\Controller;
 
 class FrontendController extends Controller
 {
-    public function actionIndex() {
-        //usage info
-    }
-
-    public function actionRenderRaw()
+    public function actionIndex()
     {
-        echo "raw";
-        $viewPath = isset($viewPath) ? $viewPath : Yii::$app->request->get('view');
-        $this->layout = isset($layout) ? $layout : Yii::$app->request->get('layout');
-        return $this->render('/' . $viewPath);
+        //@ToDo: Print usage info
     }
 
-    public function actionUrl() {
-        echo "url";
+    public function actionRenderRaw($view, $layout = null)
+    {
+        $this->layout = $layout ? sprintf('//%s', ltrim($layout, '/')) : false;
+        $view = sprintf('//%s', ltrim($view, '/'));
+        return $this->render($view);
     }
 }
