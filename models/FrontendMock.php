@@ -50,6 +50,9 @@ class FrontendMock implements Iterator
         if (is_integer($value) == false) {
             throw new Exception('setNumberOfIterations accepts only integer values');
         }
+        if ($this->iteratorIndex > 0) {
+            throw new Exception('Changing FrontendMock collection while while iteration over it');
+        }
         $this->numberOfIterations = $value;
     }
 
