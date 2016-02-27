@@ -16,8 +16,8 @@ use yii\base\Exception;
 class FrontendMockBuilder
 {
 
-    private static $message;
-    private static $numberOfIterations;
+    private static $message = '';
+    private static $numberOfIterations = 0;
 
     public static function getMessage()
     {
