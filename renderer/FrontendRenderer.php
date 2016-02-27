@@ -2,7 +2,6 @@
 
 namespace degordian\frontendController\renderer;
 
-use degordian\frontendController\models\FrontendMock;
 use degordian\frontendController\models\FrontendMockBuilder;
 use yii;
 

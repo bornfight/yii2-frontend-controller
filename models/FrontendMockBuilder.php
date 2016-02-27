@@ -2,9 +2,7 @@
 
 namespace degordian\frontendController\models;
 
-use Iterator;
 use Yii;
-use yii\base\Exception;
 
 /**
  * @ToDo: Use yii2-faker
@@ -20,23 +18,28 @@ class FrontendMockBuilder
     private static $message;
     private static $numberOfIterations;
 
-    public static function getMessage() {
+    public static function getMessage()
+    {
         return self::$message;
     }
 
-    public static function getNumberOfIterations() {
+    public static function getNumberOfIterations()
+    {
         return self::$numberOfIterations;
     }
 
-    public static function setMessage($value) {
+    public static function setMessage($value)
+    {
         self::$message = $value;
     }
 
-    public static function setNumberOfIterations($value) {
+    public static function setNumberOfIterations($value)
+    {
         self::$numberOfIterations = $value;
     }
 
-    public static function createMock() {
+    public static function createMock()
+    {
         $mock = new FrontendMock();
         $mock->setMessage(self::$message);
         $mock->setNumberOfIterations(self::$numberOfIterations);

@@ -4,6 +4,7 @@ namespace degordian\frontendController\models;
 
 use Iterator;
 use Yii;
+use yii\base\Exception;
 
 /**
  * @ToDo: Use yii2-faker
@@ -100,7 +101,7 @@ class FrontendMock implements Iterator
      */
     public function key()
     {
-        return new FrontendMock();
+        return FrontendMockBuilder::createMock();
     }
 
     /**
