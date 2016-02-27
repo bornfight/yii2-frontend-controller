@@ -37,7 +37,7 @@ class FrontendMock implements Iterator
     public function setMessage($value)
     {
         if (is_string($value) == false) {
-            throw new Exception('FrontendMockBuilder::setMessage accepts only string values');
+            throw new Exception('setMessage requires a string parameter');
         }
         $this->message = $value;
     }
@@ -48,7 +48,7 @@ class FrontendMock implements Iterator
             throw new Exception('Number of iterations cannot be negative');
         }
         if (is_integer($value) == false) {
-            throw new Exception('FrontendMockBuilder::setNumberOfIterations accepts only integer values');
+            throw new Exception('setNumberOfIterations accepts only integer values');
         }
         $this->numberOfIterations = $value;
     }

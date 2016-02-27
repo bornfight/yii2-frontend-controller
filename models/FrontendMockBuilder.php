@@ -3,6 +3,7 @@
 namespace degordian\frontendController\models;
 
 use Yii;
+use yii\base\Exception;
 
 /**
  * @ToDo: Use yii2-faker
@@ -30,11 +31,20 @@ class FrontendMockBuilder
 
     public static function setMessage($value)
     {
+        if (is_string($value) == false) {
+            throw new Exception('FrontendMockBuilder::setMessage accepts only string values');
+        }
         self::$message = $value;
     }
 
     public static function setNumberOfIterations($value)
     {
+        if ($value < 0) {
+            throw new Exception('Number of iterations cannot be negative');
+        }
+        if (is_integer($value) == false) {
+            throw new Exception('FrontendMockBuilder::setNumberOfIterations accepts only integer values');
+        }
         self::$numberOfIterations = $value;
     }
 
