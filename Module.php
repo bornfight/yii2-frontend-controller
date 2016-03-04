@@ -18,5 +18,13 @@ class Module extends \yii\base\Module
     {
         FrontendMockBuilder::setMessage($this->mockMessage);
         FrontendMockBuilder::setNumberOfIterations($this->numberOfIterations);
+        $this->setFrontendViewRenderer();
+    }
+
+    private function setFrontendViewRenderer()
+    {
+        Yii::$app->view->renderers['php'] = [
+            'class' => 'degordian\frontendController\renderer\FrontendRenderer'
+        ];
     }
 }
