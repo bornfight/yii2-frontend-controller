@@ -3,6 +3,7 @@
 namespace degordian\frontendController\models;
 
 use ArrayAccess;
+use Countable;
 use Iterator;
 use Yii;
 use yii\base\Exception;
@@ -15,7 +16,7 @@ use yii\base\Exception;
  *
  * @package degordian\frontendController\models
  */
-class FrontendMock implements Iterator, ArrayAccess
+class FrontendMock implements Iterator, ArrayAccess, Countable
 {
 
     private $iteratorIndex = 0;
@@ -205,5 +206,20 @@ class FrontendMock implements Iterator, ArrayAccess
     public function offsetUnset($offset)
     {
         return; //no operation
+    }
+
+    /**
+     * Count elements of an object
+     *
+     * @link http://php.net/manual/en/countable.count.php
+     * @return int The custom count as an integer.
+     * </p>
+     * <p>
+     * The return value is cast to an integer.
+     * @since 5.1.0
+     */
+    public function count()
+    {
+        return 5;
     }
 }
